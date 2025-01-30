@@ -1,9 +1,11 @@
+import 'package:energy_monitor_app_flutter/features/home/domain/entities/monitoring_entity.dart';
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'monitoring_model.g.dart';
 
 @JsonSerializable()
-class MonitoringModel {
+class MonitoringModel extends Equatable {
   // Use a custom fromJson/toJson for DateTime fields
   @JsonKey(fromJson: _fromJson, toJson: _toJson)
   final DateTime timestamp;
@@ -15,6 +17,14 @@ class MonitoringModel {
     required this.value,
   });
 
+  // Convert Model -> Entity
+  MonitoringEntity toEntity() {
+    return MonitoringEntity(
+      dateTime: timestamp,
+      watts: value,
+    );
+  }
+
   factory MonitoringModel.fromJson(Map<String, dynamic> json) =>
       _$MonitoringModelFromJson(json);
 
@@ -25,4 +35,7 @@ class MonitoringModel {
 
   /// Custom toJson function converts a DateTime back to an ISO-8601 string.
   static String _toJson(DateTime date) => date.toIso8601String();
+
+  @override
+  List<Object?> get props => [timestamp, value];
 }
