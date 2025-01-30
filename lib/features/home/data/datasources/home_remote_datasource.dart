@@ -15,7 +15,7 @@ abstract class HomeRemoteDatasource {
 class HomeRemoteDatasourceImpl implements HomeRemoteDatasource {
   final Client client;
 
-  HomeRemoteDatasourceImpl({required this.client});
+  const HomeRemoteDatasourceImpl({required this.client});
 
   @override
   Future<List<MonitoringModel>> getMetricData({
