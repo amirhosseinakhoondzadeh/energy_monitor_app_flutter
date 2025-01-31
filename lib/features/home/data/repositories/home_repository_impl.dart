@@ -25,7 +25,7 @@ class HomeRepositoryImpl implements HomeRepository {
     required MetricType metric,
   }) async {
     try {
-      final formate = DateFormat.yMd();
+      final formate = DateFormat('yyyy-MM-DD');
       final dateString = formate.format(date);
 
       // Check cached data

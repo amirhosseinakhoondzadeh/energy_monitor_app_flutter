@@ -1,0 +1,1 @@
+enum UnitType { watts, kilowatts }

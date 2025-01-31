@@ -10,5 +10,5 @@ class MonitoringEntity extends Equatable {
   });
 
   @override
-  List<Object?> get props => [dateTime, watts];
+  List<Object> get props => [dateTime, watts];
 }

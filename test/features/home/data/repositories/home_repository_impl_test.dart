@@ -32,7 +32,7 @@ void main() {
   });
 
   final testDate = DateTime(2025, 10, 11);
-  final dateString = DateFormat.yMd().format(testDate);
+  final dateString = DateFormat('yyyy-MM-DD').format(testDate);
   const testMetric = MetricType.solar;
 
   // Some fake data
